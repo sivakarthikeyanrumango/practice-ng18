@@ -1,0 +1,9 @@
+<div class="app-container">
+  @if(showSidebar){
+    <ng18-sidebar></ng18-sidebar>
+  }
+  
+  <div [ngClass]="{'': true, 'p-4 sm:ml-64': showSidebar}">
+    <router-outlet></router-outlet>
+  </div>
+</div>

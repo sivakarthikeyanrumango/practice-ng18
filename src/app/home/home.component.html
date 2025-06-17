@@ -1,0 +1,35 @@
+<ngx-graph
+  [view]="[1000, 600]"
+  [nodes]="nodes"
+  [links]="links"
+  [layout]="'dagre'"
+  [draggingEnabled]="false"
+>
+  <ng-template #nodeTemplate let-node>
+    <svg:g>
+      <!-- Diamond for Created -->
+      <svg:polygon
+        *ngIf="node.id === 'Created'"
+        points="0,-30 30,0 0,30 -30,0"
+        style="fill: #f0f0f0; stroke: #aaa; stroke-width: 1.5px;"
+      ></svg:polygon>
+
+      <!-- Rounded rect for others -->
+      <svg:rect
+        *ngIf="node.id !== 'Created'"
+        x="-60"
+        y="-25"
+        rx="10"
+        ry="10"
+        width="120"
+        height="50"
+        style="fill: #f0f0f0; stroke: #aaa; stroke-width: 1.5px;"
+      ></svg:rect>
+
+      <!-- Label -->
+      <svg:text text-anchor="middle" alignment-baseline="middle" font-size="13">
+        {{ node.label }}
+      </svg:text>
+    </svg:g>
+  </ng-template>
+</ngx-graph>
