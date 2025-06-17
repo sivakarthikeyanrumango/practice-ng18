@@ -11,17 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      
+
       - run: npm ci
 
       - run: npm install -g @angular/cli
 
       - run: npm run build
 
+      - run: ls -R dist/practice-ng18  # ✅ Check if folder is created
+
       - uses: actions/upload-artifact@v4
         with:
           name: dist-folder
-          path: dist/
+          path: dist/practice-ng18
