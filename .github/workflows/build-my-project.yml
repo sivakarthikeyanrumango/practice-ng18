@@ -1,22 +1,21 @@
 name: my firs git flow
 
 on:
-  push: 
+  push:
     branches: [master]
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
-  steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 22
-    - run: npm ci
-    - run: npm i -g @angular/cli
-    - run: npm run build
-    - uses: actions/upload-artifact@v4
-      with:
-        name: dist-folder
-        path: dist/practice-ng18
-
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm i -g @angular/cli
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-folder
+          path: dist/practice-ng18
