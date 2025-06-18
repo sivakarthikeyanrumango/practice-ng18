@@ -15,7 +15,7 @@ jobs:
       - run: npm ci
       - run: npm i -g @angular/cli
       - run: npm run build
-      - uses: actions/artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: dist-folder
           path: dist/practice-ng18
