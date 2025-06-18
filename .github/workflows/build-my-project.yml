@@ -1,6 +1,4 @@
 name: second day try
-
-
 on:
   push:
     branches: [master]
